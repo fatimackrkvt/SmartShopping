@@ -1,0 +1,37 @@
+ .menu-ul{
+    list-style-type: none;
+    margin:0,0,20,20;
+    float:right;
+    margin-right:20px
+}
+
+.menu-ul li{
+    display: inline-block;
+    margin-left:10px
+}
+
+.headerLogo {
+    width:80px;
+    background-position:0px,0px,10px,10;
+    float: left;
+}
+
+.headerMotto{
+    text-align: center;
+    margin:0,0,20,20;
+    font-size: 25pt;
+    font-style: oblique;
+    
+}
+
+.headerTitle{
+    text-align: left;
+    float: left;
+    font-size: 20pt;
+    font-style:inherit;
+}
+
+.header {
+    background-color:lightgrey;
+    text-align: center;
+}
