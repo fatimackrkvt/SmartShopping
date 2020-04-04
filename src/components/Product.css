@@ -1,0 +1,19 @@
+
+.ellipsis {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+  
+  /****** Product ******/
+  
+  .product-price {
+    margin-bottom: 0;
+  }
+
+  .card{
+    margin:4px;
+    padding:4px;
+    background-color: lightcyan;
+    position: relative;
+  }
