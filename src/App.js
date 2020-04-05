@@ -20,7 +20,7 @@ function App() {
     <Router>
         <div>
         <Header></Header>
-        <Row> <Col md={1}  className="navigation" style={{height: '100%'}}> <Navigation></Navigation> </Col>
+        <Row> <Col md={2}  className="navigation" style={{height: '100%'}}> <Navigation></Navigation> </Col>
               <Col md={11}> 
               <Switch>
               <Route exact path="/" component={Home}></Route>
