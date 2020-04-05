@@ -8,7 +8,7 @@ class Header extends Component {
     render() {
         return (
             <div className="header">
-                <img src={lego} className="headerLogo" />
+                <img src={lego} className="headerLogo" alt="Lego of Site"/>
                 <span className="headerTitle">Smart Shopping </span>
                 <span className="headerMotto">Compare & Shop Smartly </span>
                 <ul className="menu-ul">

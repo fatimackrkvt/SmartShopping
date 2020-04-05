@@ -13,12 +13,15 @@ class ProductList extends Component {
     constructor(props) {
         super(props);
 
-        /*this.state = {
-            products: products.ProductList,
-            todos:[]
-        };*/
+        if(props.match.params.searchCriteria != null && props.match.params.searchCriteria != undefined && 
+            props.match.params.searchCriteria != '')
+         {
+             products.ProductList = products.ProductList.filter(function (item,index){
+                return item.Name==props.match.params.searchCriteria;
+             });
+         }
+
         this.state.products = products.ProductList;
-        console.log("constructor");
     }
 
     componentWillMount() {
@@ -27,17 +30,11 @@ class ProductList extends Component {
 
     fetchUserList = async () => {
         const data = await fetch('https://jsonplaceholder.typicode.com/users');
-        console.log('**********');
-        console.log(data);
-
         var userList =  await data.json();
         this.setState({users:userList });
-        console.log('----------------------------');
-        console.log(this.state.users);
     }
 
     render() {
-        //console.log(this.state.products);
         //todo:come here with url prms (from tree navigation &/ search) and get product list from API
         return (
             <div>
