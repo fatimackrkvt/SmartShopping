@@ -13,6 +13,7 @@ import Home from './components/Home.js';
 import About from './components/About.js';
 import Contact from './components/Contact.js';
 import ProductList from './components/ProductList.js';
+import Temp from './components/Temp.js';
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
               <Route  path="/about" component={About}></Route>
               <Route  path="/contact" component={Contact}></Route>
               <Route  path="/products" component={ProductList}></Route>
+              <Route  path="/temp/:id" component={Temp}></Route> 
               </Switch>
               
               </Col>
