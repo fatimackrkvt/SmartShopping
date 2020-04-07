@@ -35,6 +35,9 @@ class ProductList extends Component {
     }
 
     render() {
+        const searchCriteria = this.props.match.params.searchCriteria;
+        const msg="Mesaj";
+        console.log(msg+searchCriteria);
         //todo:come here with url prms (from tree navigation &/ search) and get product list from API
         return (
             <div>
