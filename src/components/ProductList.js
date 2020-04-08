@@ -4,60 +4,47 @@ import {Container} from 'react-bootstrap';
 import products from '../tempdata/ProductList.json';
 import Product from './Product.js';
 import './ProductList.css';
-import {Link} from 'react-router-dom';
 
 class ProductList extends Component {
+ 
+    state = { products: [] };
 
-    state = {  products: [], users:[] };
-
-    constructor(props) {
-        super(props);
-
-        if(props.match.params.searchCriteria != null && props.match.params.searchCriteria != undefined && 
-            props.match.params.searchCriteria != '')
-         {
-             products.ProductList = products.ProductList.filter(function (item,index){
-                return item.Name==props.match.params.searchCriteria;
+    filterProductList = (searchCriteria) => {
+        
+        if( searchCriteria != null && searchCriteria != undefined && searchCriteria != '')
+        {
+             let currentPoductList = products.ProductList.filter(function (item,index){
+                return item.Name==searchCriteria;
              });
+             this.setState({products : currentPoductList});
          }
-
-        this.state.products = products.ProductList;
+        else this.setState({products : products.ProductList});
     }
 
     componentWillMount() {
-        this.fetchUserList();
+        let searchCriteria = this.props.match.params.searchCriteria;
+        this.filterProductList(searchCriteria);
     }
 
-    fetchUserList = async () => {
-        const data = await fetch('https://jsonplaceholder.typicode.com/users');
-        var userList =  await data.json();
-        this.setState({users:userList });
-    }
+    componentDidUpdate(prevProps) {
+        // Typical usage (don't forget to compare props):
+        let searchCriteria = this.props.match.params.searchCriteria;
+        let searchCriteriaOld = prevProps.match.params.searchCriteria;
+        if (searchCriteria !== searchCriteriaOld) {
+          this.filterProductList(searchCriteria);
+        }
+    }    
 
     render() {
         const searchCriteria = this.props.match.params.searchCriteria;
-        const msg="Mesaj";
-        console.log(msg+searchCriteria);
+
         //todo:come here with url prms (from tree navigation &/ search) and get product list from API
         return (
-            <div>
-                ProductList component will consist of Product Components
-                <div className="container" >
-                    {this.state.products.map(product => ( <Product key={product.id}
-                                                            product={product} />
-                    ))
-                   }
-                </div>
-                Use Link with parameter
-                <div>
-                    {this.state.users.map(user => ( 
-                    <Link to={`/temp/${user.id}`} key={user.id} >{user.name} <span> | </span> </Link>
-                    ))
-                   }
-                   
-                </div>
+            <div className="container" >
+                    {this.state.products.map(product => { return ( <Product key={product.id}
+                                                                            product={product} />);
+                    } ) }
             </div>
-            
         );
     }
 }

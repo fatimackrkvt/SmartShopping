@@ -6,39 +6,35 @@ import './Product.css';
 
 class Product extends Component {
 
-    state = { product : null };
-
-    constructor(props){
-        super(props);
-
-        this.state.product=props.product;
-    }
-
     render() {
-        return (        
+
+        let product = this.props.product;
+
+        return (   
+                 
          <Col lg="3" md="4" sm="6" xs="8">
                 <Card className="card">
                     <h4
                     className="ellipsis"
-                    title={this.state.product.Name}>
+                    title={product.Name}>
                     <a href="#">
-                        {this.state.product.Name}
+                        {product.Name}
                     </a>
                     </h4>
 
                     <h5
                     className="ellipsis product-brand-name"
-                    title={this.state.product.Brand}>
-                    {`by ${this.state.product.Brand}`}
+                    title={product.Brand}>
+                    {`by ${product.Brand}`}
                     </h5>
                     <h5
                     className="ellipsis product-brand-name"
-                    title={this.state.product.Market}>
-                    {this.state.product.Market}
+                    title={product.Market}>
+                    {product.Market}
                     </h5>
 
                     <div className="pull-right h4 product-price">
-                    {`${this.state.product.Price}$`}
+                    {`${product.Price}$`}
                     </div>
                 </Card>
             </Col>
@@ -47,6 +43,7 @@ class Product extends Component {
 }
 
  Product.propTypes = {
+    key:PropTypes.string.isRequired,
     product: PropTypes.object.isRequired
 };
 

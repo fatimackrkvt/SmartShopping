@@ -14,7 +14,7 @@ class SearchForm extends React.Component{
          return (
          <div>
              <input type="text" name="searchCriteria" onChange={this.setSearchCriteria}></input>
-
+            {/* TODO: instead of using state and setSearchCriteria , send directly value of input */ }
              <NavLink style={searchStyle} to={`/products/${this.state.searchCriteria}`}> Search</NavLink>
          </div>
          )

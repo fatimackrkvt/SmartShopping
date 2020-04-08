@@ -12,7 +12,6 @@ import Home from './components/Home.js';
 import About from './components/About.js';
 import Contact from './components/Contact.js';
 import ProductList from './components/ProductList.js';
-import Temp from './components/Temp.js';
 import SearchForm from './components/SearchForm.js';
 
 class App extends Component {
@@ -29,8 +28,8 @@ class App extends Component {
               <Route exact path="/" component={Home}></Route>
               <Route  path="/about" component={About}></Route>
               <Route  path="/contact" component={Contact}></Route>
+              <Route  exact path="/products"  component={ProductList}/>
               <Route  path="/products/:searchCriteria"  component={ProductList}/>
-              <Route  path="/temp/:id" component={Temp}></Route> 
               </Switch> 
               </Col>
         </Row>
